@@ -1,0 +1,274 @@
+body {
+	background: #eee;
+	font-family: "Pontano Sans", sans-serif;
+	color: #666;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+li {
+	margin-bottom: 1em;
+}
+
+.content form li {
+	margin-left: 5%;
+}
+
+label {
+	display: block;
+}
+
+input[type=text] {
+	padding: 5px;
+	width: 70%;
+	color: #aaa;
+	font-size: 0.8em;
+}
+
+input[type=submit] {
+	border: none;
+	cursor: pointer;
+	font-family: 'Pontano Sans';
+	font-size: 1em;
+}
+
+select {
+	border: 1px solid #CCC;
+	width: 72%;
+	height: 2.2em;
+	font-family: 'Pontano Sans';
+	font-size: 0.9em;
+}
+
+header {
+	padding-bottom: 1em;
+}
+
+header p {
+	margin-top: 0;
+}
+
+.tasks-list h1 {
+	margin-bottom: 0;
+}
+
+h1 {
+	font-size: 1.8em;
+	margin-top: .4em;
+}
+
+table {
+	width: 100%;
+}
+
+th {
+	font-family: 'Enriqueta';
+}
+
+td, th {
+	padding: .5em;
+	text-align: left;
+}
+
+td {
+	border-top: 1px solid #ddd;
+}
+
+.invoice td, .invoice th {
+	padding: 1em;
+}
+
+.invoice tr:nth-child(even) {
+	background-color: #e7f2fa;
+}
+
+.invoice table {
+	margin-top: 2em;
+}
+
+.invoice {
+	position: relative;
+}
+
+.container {
+	width: 90%;
+	margin: 1em auto;
+}
+
+.content-wrap, .one-column-wrap {
+	margin-bottom: 2em;
+	max-width: 960px;
+	margin: 0 auto;
+}
+.content, .sidebar-content, .one-column-content {
+	padding: 0.5em 0.8em;
+	background: white;
+}
+
+.content h2:first-child {
+	margin-top: 0;
+	margin-bottom: 1.2em;
+}
+
+.top-bar {
+	color: white;
+	font-size: 1.2em;
+	padding: 1em;
+	background: #1ABC9C;
+	font-family: 'Enriqueta'
+}
+.top-bar a {
+	text-decoration: none;
+	color: white;
+	padding: 0 14px 0 0;
+	display: inline-block;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	
+}
+.top-bar a:hover {
+	color: #f1f1f1;
+}
+
+.purple-btn {
+	background-color: #9b59b6;
+}
+.red-btn {
+	background-color: #d35400;
+}
+
+.purple-btn, .red-btn {
+	display: inline-block;
+	color: #FFF;
+	text-decoration: none;
+	text-align: center;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	padding: .4em;
+}
+.purple-btn:hover, .red-btn:hover {
+	opacity: 0.8;
+}
+.task-container {
+	border-top: 1px solid #EEE;
+	clear: both;
+}
+
+.task-container h3 {
+	margin-bottom: 0;
+}
+
+.links {
+	margin-top: 2em;
+}
+
+.date {
+	float: right;
+}
+.sidebar-content h3 {
+	margin: 0;
+}
+
+.sidebar-content p {
+	margin-top: 0;
+}
+
+.sidebar-content span {
+	color: #2980b9;
+}
+
+.sidebar-content ul {
+	margin-bottom: 1em;
+}
+
+.sidebar-content li {
+	margin-bottom: 0;
+}
+
+.sidebar-content input[type=text] {
+	margin-bottom: 1em;
+}
+
+.sidebar-content table {
+	margin-bottom: 1em;
+}
+
+.sidebar-1-wrap {
+	margin-bottom: 2em;
+}
+
+.invoice h1 {
+	margin-bottom: 0;
+}
+
+.invoice-list h3 {
+	margin-bottom: 0;
+}
+
+.invoice-list a {
+	margin-top: 1em;
+}
+
+.sidebar-2-wrap form {
+	display: inline-block;
+}
+
+form.complete-project {
+	margin-left: -56px;
+}
+
+form.bill-client {
+	position: absolute;
+	top: 1%;
+	right: 2%;
+}
+@media screen and (min-width: 30em) {
+	.content, .sidebar-content {
+		padding: 1em 1.5em;
+	}
+	h1 {
+		font-size: 2em;
+		margin-top: .1em;
+	}
+	/*header a {
+		float: right;
+	}
+	header h1 {
+		float: left;
+	}*/
+}
+
+@media screen and (min-width: 53.75em) {
+	.sidebar-wrap {
+		float: right;
+		width: 40%;
+		max-width: 333px;
+	}
+	.content-wrap {
+		float: left;
+		width: 53%;
+	}
+}
+
+@media screen and (min-width: 60em) {
+	.content-wrap {
+		width: 58%;
+	}
+}
+
+@media screen and (min-width: 72em) {
+	.content-wrap {
+		width: 64%;
+	}
+}
