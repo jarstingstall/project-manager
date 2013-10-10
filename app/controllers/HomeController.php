@@ -19,19 +19,4 @@ class HomeController extends BaseController {
 	{
 		return View::make('hello');
 	}
-
-	public function login()
-	{
-		$credentials = array(
-			'email' => Input::get('email'),
-			'password' => Input::get('password')
-		);
-
-		if (Auth::attempt($credentials)) {
-			return Redirect::action('ProjectsController@index');
-		} else {
-			return View::make('home');
-		}
-	}
-
 }

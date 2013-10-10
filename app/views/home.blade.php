@@ -8,21 +8,9 @@
 
 	<div class="one-column-content">
 
-	{{ Form::open() }}
-	<ul>
-	<li>
-	{{ Form::label('email', 'Email') }}
-	{{ Form::email('email') }}
-	</li>
-	<li>
-	{{ Form::label('password', 'Password') }}
-	{{ Form::password('password') }}
-	</li>
-	<li>
-	{{ Form::submit('Log In', array('class' => 'purple-btn') ) }}
-	</li>
-	</ul>
-	{{ Form::close() }}
+	<h2>Welcome to your Project Manager</h2>
+	<p>Click below to log in!</p>
+	{{ link_to_action('SessionsController@create', 'Log In', null, ['class' => 'purple-btn']) }}
 
 	</div>
 </div>
