@@ -1,6 +1,15 @@
 <?php
 
+use PM\Mailers\InvoiceMailer;
+
 class InvoicesController extends \BaseController {
+
+	protected $mailer;
+
+	public function __construct(InvoiceMailer $mailer)
+	{
+		$this->mailer = $mailer;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -87,10 +96,12 @@ class InvoicesController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		Invoice::find($id)->update(array(
-			'sent' => 1
-		));
+		$invoice = Invoice::find($id);
+		$invoice->sent = 1;
+		$invoice->save();
 
+		$data = $invoice->toArray();
+		$this->mailer->sendInvoice($data);
 
 		return Redirect::route('invoices.show', $id);
 	}
