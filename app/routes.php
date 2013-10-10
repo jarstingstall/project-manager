@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(array('before' => 'auth'), function () { 
+Route::group(array('before' => 'auth'), function () {
 	Route::get('/projects/{id}', 'ProjectTasksController@index')->where('id', '\d+');
 	Route::resource('projects', 'ProjectsController');
 	Route::resource('projects.tasks', 'ProjectTasksController');
@@ -24,7 +24,7 @@ Route::group(array('before' => 'auth'), function () {
 	Route::get('/completed', array('before' => 'auth', function() {
 
 		$projects = Project::whereCompleted(1)->orderby('updated_at', 'desc')->get();
-		
+
 		return View::make('projects.completed')
 			->with('projects', $projects);
 	}));
@@ -37,26 +37,9 @@ Route::get('/', function() {
 	return View::make('home');
 });
 
-Route::post('/', function() {
-	
-	$credentials = array(
-		'email' => Input::get('email'),
-		'password' => Input::get('password')
-	);
-
-	if (Auth::attempt($credentials)) {
-		return Redirect::action('ProjectsController@index');
-	} else {
-		return View::make('home');
-	}
-
-});
+Route::post('/', 'HomeController@login');
 
 Route::get('logout', function() {
 	Auth::logout();
 	return 'You are logged out';
-});
-
-Route::get('residential-movers', function() {
-	return 'Residential Movers Page';
 });

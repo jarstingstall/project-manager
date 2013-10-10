@@ -7,9 +7,8 @@
 	</div>
 
 	<div class="one-column-content">
-		
+
 	{{ Form::open() }}
-	
 	<ul>
 	<li>
 	{{ Form::label('email', 'Email') }}
