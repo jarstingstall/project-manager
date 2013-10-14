@@ -13,45 +13,39 @@
 		'method' =>'put',
 		'route' => array('projects.update', $project->id))
 	) }}
-	
+
 	<ul>
-	<li>
-		
-		{{ Form::label('title', 'Title ') }}
-		{{ Form::text('title') }}
-
-	</li>
-	<li>
-		
-		{{ Form::label('client', 'Client ') }}
-		{{ Form::text('client') }}
-
-	</li>
-	<li>
-		
-		{{ Form::label('dealer', 'Dealer ') }}
-		{{ Form::text('dealer') }}
-
-	</li>
-	<li>
-		
-		{{ Form::label('proposal_id', 'Proposal ID ') }}
-		{{ Form::text('proposal_id') }}
-
-	</li>
-	<li>
-		
-		{{ Form::label('work_type', 'Work Type ') }}
-		{{ Form::text('work_type') }}
-
-	</li>
-	<li>
-		
-		{{ Form::submit('Update Info', array('class' => 'red-btn')) }}
-
-	</li>
+		<li>
+			{{ Form::label('title', 'Title ') }}
+			{{ Form::text('title') }}
+		</li>
+		<li>
+			{{ Form::label('client', 'Client ') }}
+			{{ Form::text('client') }}
+		</li>
+		<li>
+			{{ Form::label('dealer', 'Dealer ') }}
+			{{ Form::text('dealer') }}
+		</li>
+		<li>
+			{{ Form::label('proposal_id', 'Proposal ID ') }}
+			{{ Form::text('proposal_id') }}
+		</li>
+		<li>
+			{{ Form::label('work_type', 'Work Type ') }}
+			{{ Form::select('work_type', [
+				'Basic Updates' => 'Basic Updates',
+				'Site Enhancements' => 'Site Enhancements',
+				'Mobile Site' => 'Mobile Site',
+				'Site Redesign' => 'Site Redesign',
+				'Site Rebuild' => 'Site Rebuild'
+			]) }}
+		</li>
+		<li>
+			{{ Form::submit('Update Info', array('class' => 'red-btn')) }}
+		</li>
 	</ul>
-	
+
 	{{ Form::close() }}
 </div>
 </div>
