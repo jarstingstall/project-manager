@@ -9,9 +9,8 @@ class ProjectsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$projects = Project::whereCompleted(false)->get();
-
 		$project = new Project();
+		$projects = $project->whereCompleted(false)->get();
 		$project->getTasksCount($projects);
 
 		return View::make('projects.index')
@@ -35,13 +34,7 @@ class ProjectsController extends \BaseController {
 	 */
 	public function store()
 	{
-		Project::create(array(
-			'title' => Input::get('title'),
-			'client' => Input::get('client'),
-			'dealer' => Input::get('dealer'),
-			'proposal_id' => Input::get('proposal_id'),
-			'work_type' => Input::get('work_type')
-		));
+		Project::create(Input::all());
 
 		return Redirect::route('projects.index');
 	}
@@ -66,8 +59,8 @@ class ProjectsController extends \BaseController {
 	public function edit($id)
 	{
 		$project = Project::find($id);
-		$timelogs = Timelog::whereProjectId($id)->where('billed', '=', false)->get();
-		$timelogs->total = Timelog::whereProjectId($id)->where('billed', '=', false)->sum('hours');
+		$timelogs = $project->timelogs()->whereBilled(0)->get();
+		$timelogs->total = $project->getTotalHours($timelogs);
 
 		return View::make('projects.edit')
 			->with('project', $project)
@@ -82,14 +75,7 @@ class ProjectsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		
-		Project::find($id)->update(array(
-			'title' => Input::get('title'),
-			'client' => Input::get('client'),
-			'dealer' => Input::get('dealer'),
-			'proposal_id' => Input::get('proposal_id'),
-			'work_type' => Input::get('work_type')
-		));
+		Project::find($id)->update(Input::all());
 
 		return Redirect::route('projects.tasks.index', $id);
 	}
@@ -102,9 +88,7 @@ class ProjectsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		Project::find($id)->update(array(
-			'completed' => true
-		));
+		Project::find($id)->update(['completed' => true]);
 
 		return Redirect::route('projects.index');
 	}

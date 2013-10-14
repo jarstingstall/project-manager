@@ -1,9 +1,9 @@
 
-	
+
 	<div class="sidebar-2-wrap">
 		<div class="top-bar">Time Log</div>
 		<div class="sidebar-content">
-		<table cellspacing="0">	
+		<table cellspacing="0">
 			<tr>
 				<th>Date</th>
 				<th>Hours</th>
@@ -30,9 +30,7 @@
 		</table>
 		@if($project->completed == 0)
 			{{ Form::open(array(
-
 				'route' => array('projects.timelog', $project->id)
-
 			)) }}
 			<ul>
 			<li>
@@ -45,17 +43,14 @@
 			</ul>
 			{{ Form::close() }}
 
-			
 			{{ Form::open(array(
 			'method' => 'delete',
-			'route' => array('projects.destroy', $project->id),
+			'route' => ['projects.destroy', $project->id],
 			'class' => 'complete-project'
 			)) }}
-
-			{{ Form::submit('Complete Project', array('class' => 'purple-btn')) }}
-
+			{{ Form::submit('Complete Project', ['class' => 'purple-btn']) }}
 			{{ Form::close() }}
 		@endif
 		</div>
-	</div>	
+	</div>
 

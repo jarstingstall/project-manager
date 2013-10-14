@@ -1,5 +1,5 @@
 
-	
+
 	<div class="sidebar-1-wrap">
 		<div class="top-bar">Project Details</div>
 		<div class="sidebar-content">
@@ -10,8 +10,8 @@
 				Dealer: <span>{{ $project->dealer }}</span><br>
 				Proposal ID: <span>{{ $project->proposal_id }}</span><br>
 				Work Type: <span>{{ $project->work_type }}</span>
-			</p>	
-				{{ link_to_route('projects.edit', 'Update Details', $project->id, array('class' => 'purple-btn')) }}
+			</p>
+				{{ link_to_route('projects.edit', 'Update Details', $project->id, ['class' => 'purple-btn']) }}
 		</div>
-	</div>	
+	</div>
 

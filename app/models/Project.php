@@ -21,4 +21,14 @@ class Project extends Eloquent {
 		}
 	}
 
+	public function getTotalHours($timelogs)
+	{
+		$hours = 0;
+		foreach($timelogs as $timelog)
+		{
+			$hours = $hours + $timelog->hours;
+		}
+		return $hours;
+	}
+
 }
