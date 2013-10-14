@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('test/{id}', function($id) {
-	return Invoice::find($id)->projects;
+Route::get('test', function() {
+	$client =  Client::find(1);
+	return $client->contacts;
 });
 
 Route::group(array('before' => 'auth'), function () {
@@ -44,3 +45,8 @@ Route::get('/', ['as' => 'home', function() {
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
+
+
+Route::resource('clients', 'ClientsController');
+
+Route::resource('contacts', 'ContactsController');

@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('ProjectsTableSeeder');
 		// $this->call('TasksTableSeeder');
 		$this->call('UsersTableSeeder');
+		$this->call('ClientsTableSeeder');
+		$this->call('ContactsTableSeeder');
 	}
 
 }
