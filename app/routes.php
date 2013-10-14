@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('test/{id}', function($id) {
+	return Project::find($id)->timelogs;
+});
+
 Route::group(array('before' => 'auth'), function () {
 	Route::get('/projects/{id}', 'ProjectTasksController@index')->where('id', '\d+');
 	Route::resource('projects', 'ProjectsController');

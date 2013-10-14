@@ -9,4 +9,9 @@ class Timelog extends Eloquent {
 		return $this->belongsTo('Project');
 	}
 
+	public function invoice()
+	{
+		return $this->belongsTo('Invoice');
+	}
+
 }

@@ -14,6 +14,11 @@ class Project extends Eloquent {
 		return $this->hasMany('Timelog');
 	}
 
+	public function invoices()
+	{
+		return $this->hasMany('Invoice');
+	}
+
 	public function getTasksCount($projects)
 	{
 		foreach($projects as $project) {

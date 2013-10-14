@@ -20,8 +20,7 @@ class InvoicesController extends \BaseController {
 	{
 		$invoices = Invoice::all();
 
-		return View::make('invoices.index')
-			->with('invoices', $invoices);
+		return View::make('invoices.index', compact('invoices'));
 	}
 
 	/**
@@ -41,11 +40,7 @@ class InvoicesController extends \BaseController {
 	 */
 	public function store()
 	{
-		Invoice::create(array(
-			'client' => Input::get('client'),
-			'start_date' => Input::get('start_date'),
-			'end_date' => Input::get('end_date')
-		));
+		Invoice::create(Input::all());
 
 		return Redirect::route('invoices.index');
 	}
@@ -59,18 +54,24 @@ class InvoicesController extends \BaseController {
 	public function show($id)
 	{
 		$invoice = Invoice::find($id);
-		$projects = Project::all();
 
-		$invoice->total = 0;
+		// Many to many
+		// $projects = $invoice->projects;
+
+		$projects = Project::all();
+		$worktype = new Worktype;
+
+
+		$total = 0;
 
 		foreach($projects as $project) {
 			$project->hours = $project->timelogs()->whereInvoiceId($id)->sum('hours');
-			$project->rate = Worktype::whereTitle($project->work_type)->pluck('hourly_rate');
+			$project->rate = $worktype->getHourlyRate($project);
 			$project->total = number_format($project->hours * $project->rate, 2);
-			$invoice->total += $project->total;
+			$total += $project->total;
 		}
 
-		$invoice->total = number_format($invoice->total, 2);
+		$invoice->total = number_format($total, 2);
 
 		return View::make('invoices.show')
 			->with('invoice', $invoice)
