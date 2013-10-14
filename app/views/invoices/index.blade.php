@@ -3,11 +3,8 @@
 @section('main-content')
 
 <div class="one-column-wrap">
-	
-	<div class="top-bar">
-		{{ link_to_route('projects.index', 'My Projects') }}
-		{{ link_to_route('invoices.index', 'My Invoices') }}
-	</div>
+
+	@include('_partials.navigation')
 
 	<div class="one-column-content">
 		<header>
@@ -16,7 +13,7 @@
 		</header>
 		<ul>
 			@foreach($invoices as $invoice)
-				
+
 				<div class="task-container invoice-list">
 					<li>
 						<h3>{{ $invoice->client }}</h3>

@@ -2,10 +2,7 @@
 
 @section('main-content')
 <div class="one-column-wrap">
-	<div class="top-bar">
-		{{ link_to_route('projects.index', 'My Projects') }}
-		{{ link_to_route('invoices.index', 'My Invoices') }}
-	</div>
+@include('_partials.navigation')
 
 	<div class="one-column-content">
 		<header>
@@ -14,7 +11,7 @@
 		</header>
 		<ul>
 			@foreach($worktypes as $worktype)
-				
+
 				<div class="task-container">
 					<li>
 						<h3>{{ $worktype->title }}</h3>

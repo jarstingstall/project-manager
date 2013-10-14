@@ -1,9 +1,7 @@
 @extends('master')
 @section('main-content')
 <div class="content-wrap">
-<div class="top-bar">
-	{{ link_to_route('projects.index', 'My Projects')}}
-</div>
+@include('_partials.navigation')
 <div class="content">
 	<h1>Add new task.</h1>
 	{{ Form::open(array
@@ -11,13 +9,13 @@
 	) }}
 	<ul>
 	<li>
-		
+
 		{{ Form::label('title', 'Title ') }}
 		{{ Form::text('title') }}
 
 	</li>
 	<li>
-		
+
 		{{ Form::submit('Add Task', array('class' => 'red-btn')) }}
 
 	</li>
@@ -29,6 +27,6 @@
 
 @section('sidebar')
 
-@include('sidebar-1')
+@include('_partials.sidebar-1')
 
 @stop

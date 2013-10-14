@@ -3,11 +3,8 @@
 @section('main-content')
 
 <div class="one-column-wrap">
-	
-	<div class="top-bar">
-		{{ link_to_route('projects.index', 'My Projects') }}
-		{{ link_to_route('invoices.index', 'My Invoices') }}
-	</div>
+
+	@include('_partials.navigation')
 
 	<div class="one-column-content invoice">
 		<h1>{{ $invoice->client }}</h1>
@@ -23,7 +20,7 @@
 		))}}
 
 		{{ Form::submit('Bill Client', array('class' => 'red-btn'))}}
-	
+
 		{{ Form::close() }}
 		@else
 		{{ Form::open(array(
@@ -33,7 +30,7 @@
 		))}}
 
 		{{ Form::submit('Paid In Full', array('class' => 'red-btn'))}}
-	
+
 		{{ Form::close() }}
 		@endif
 		<table cellspacing="0">

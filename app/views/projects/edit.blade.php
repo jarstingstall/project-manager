@@ -1,9 +1,7 @@
 @extends('master')
 @section('main-content')
 <div class="content-wrap">
-<div class="top-bar">
-	{{ link_to_route('projects.index', 'My Projects')}}
-</div>
+@include('_partials.navigation')
 <div class="content">
 	<header>
 	<h1>Update project info.</h1>
@@ -53,8 +51,8 @@
 
 @section('sidebar')
 
-@include('sidebar-1')
+@include('_partials.sidebar-1')
 
-@include('sidebar-2')
+@include('_partials.sidebar-2')
 
 @stop

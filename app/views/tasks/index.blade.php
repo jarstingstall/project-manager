@@ -3,11 +3,8 @@
 @section('main-content')
 
 <div class="content-wrap">
-	
-	<div class="top-bar">
-		{{ link_to_route('projects.index', 'My Projects')}}
-		{{ link_to_route('invoices.index', 'My Invoices')}}
-	</div>
+
+@include('_partials.navigation')
 
 <div class="content tasks-list">
 
@@ -18,11 +15,11 @@
 </header>
 
 <ul>
-	
+
 	@foreach($tasks as $task)
 		<div class="task-container">
 			<li>
-				
+
 				<p>{{ $task->title }}</p>
 
 				<p class="date">{{ date('m/d/y', strtotime($task->created_at)) }}
@@ -53,9 +50,9 @@
 
 @section('sidebar')
 
-	@include('sidebar-1')
-	
-	@include('sidebar-2')
+	@include('_partials.sidebar-1')
+
+	@include('_partials.sidebar-2')
 
 @stop
 
