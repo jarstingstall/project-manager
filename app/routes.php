@@ -12,7 +12,7 @@
 */
 
 Route::get('test/{id}', function($id) {
-	return Project::find($id)->timelogs;
+	return Invoice::find($id)->projects;
 });
 
 Route::group(array('before' => 'auth'), function () {

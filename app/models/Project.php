@@ -16,7 +16,7 @@ class Project extends Eloquent {
 
 	public function invoices()
 	{
-		return $this->hasMany('Invoice');
+		return $this->belongsToMany('Invoice');
 	}
 
 	public function getTasksCount($projects)
