@@ -45,8 +45,5 @@ Route::get('/', ['as' => 'home', function() {
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::resource('sessions', 'SessionsController', ['only' => ['create', 'store', 'destroy']]);
-
-
 Route::resource('clients', 'ClientsController');
-
 Route::resource('contacts', 'ContactsController');

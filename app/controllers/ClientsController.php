@@ -9,7 +9,9 @@ class ClientsController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+		$clients = Client::all();
+
+		return View::make('clients.index', compact('clients'));
 	}
 
 	/**
@@ -40,7 +42,9 @@ class ClientsController extends BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$client = Client::findorFail($id);
+
+		return View::make('clients.show', compact('client'));
 	}
 
 	/**

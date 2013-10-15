@@ -9,4 +9,9 @@ class Invoice extends Eloquent {
 		return $this->belongsToMany('Project');
 	}
 
+	public function invoice()
+	{
+		return $this->belongsTo('Client');
+	}
+
 }
